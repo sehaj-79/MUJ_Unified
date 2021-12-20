@@ -15,14 +15,14 @@ struct Login: View {
     var body: some View {
         VStack {
             
-            Spacer()
+            Spacer(minLength: 150)
             
             Text("MUJ\nUNIFIED")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .multilineTextAlignment(.center)
             
-            Spacer()
+            Spacer(minLength: 150)
             
             HStack{
                 Text("Sign In")
@@ -60,9 +60,20 @@ struct Login: View {
                     Spacer()
                 }
                 
-                SecureField("********", text: $password)
-                    .padding(.horizontal, 25.0)
-                    .textFieldStyle(PlainTextFieldStyle())
+                HStack {
+                    SecureField("********", text: $password)
+                        .padding(.horizontal, 25.0)
+                        .textFieldStyle(PlainTextFieldStyle())
+                    
+                    Spacer()
+                    Button {
+                        
+                    } label: {
+                        Text("Forgot Pasword")
+                            .font(.footnote)
+                            .foregroundColor(Color.gray)
+                    }.padding(.trailing,25)
+                }
                 
                 Rectangle()
                     .offset(y:-4)
@@ -71,8 +82,40 @@ struct Login: View {
                     .padding(.horizontal, 25)
             }.padding(.top,25)
             
-           
+
             Spacer()
+            
+            Button {
+                
+            } label: {
+                Text("Sign In")
+                    .font(.title3)
+                    .frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.black)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(20.0)
+                    .padding(25)
+            }
+
+           
+            HStack {
+                Text("Don't have an Account?")
+                    .font(.footnote)
+                    .foregroundColor(Color.gray)
+                
+                Button {
+                    
+                } label: {
+                    Text("Sign Up")
+                        .font(.footnote)
+                        .foregroundColor(Color.gray)
+                        .bold()
+                }
+            }
+        
+            
+            //Spacer()
+            
         }
     }
 }
@@ -81,7 +124,6 @@ struct Login_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Login()
-                
         }
     }
 }
