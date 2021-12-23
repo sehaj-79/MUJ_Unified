@@ -13,6 +13,9 @@ struct Register: View {
     @State var email:String = ""
     @State var password:String = ""
     @State var cpassword:String = ""
+    @State var SignInIntent:Bool = false
+    @State var incorrectPass:Bool = false
+    @State var allDetails:Bool = false
     
     var body: some View {
         VStack {
@@ -74,7 +77,10 @@ struct Register: View {
                     Text("Password")
                         .padding(.leading, 25.0)
                     Spacer()
-                }
+                }.alert(isPresented: $allDetails, content: {
+                    Alert(title: Text("Error"),message: Text("Please Fill all Fields"),
+                          dismissButton: .default(Text("OK")))
+                })
                 
                 SecureField("********", text: $password)
                     .padding(.horizontal, 25.0)
@@ -92,7 +98,10 @@ struct Register: View {
                     Text("Re-enter Password")
                         .padding(.leading, 25.0)
                     Spacer()
-                }
+                }.alert(isPresented: $incorrectPass, content: {
+                    Alert(title: Text("Error"),message: Text("Please Check Password"),
+                          dismissButton: .default(Text("OK")))
+                })
                 
                 SecureField("********", text: $cpassword)
                     .padding(.horizontal, 25.0)
@@ -106,6 +115,22 @@ struct Register: View {
             }.padding(.top,25)
             
             Button {
+                
+                if(!(name.isEmpty || email.isEmpty || password.isEmpty || cpassword.isEmpty)){
+                    
+                    if (password == cpassword) {
+                        CreateAccount(email: email, password: password)
+                    }
+                    else{
+                        self.incorrectPass = true
+                    }
+                    
+                    
+                }
+                else{
+                    self.allDetails = true
+                }
+                
                 
             } label: {
                 Text("Sign Up")
@@ -124,7 +149,7 @@ struct Register: View {
                     .foregroundColor(Color.gray)
                 
                 Button {
-                    
+                    self.SignInIntent = true
                 } label: {
                     Text("Sign In")
                         .font(.footnote)
@@ -133,7 +158,11 @@ struct Register: View {
                 }
             }
             
-        }
+            NavigationLink(destination: Login(),isActive : $SignInIntent) {
+                EmptyView()
+            }
+            
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
