@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct Login: View {
     
     @State var email:String = ""
     @State var password:String = ""
     @State var SignUpIntent:Bool = false
+    @State var HomePageIntent:Bool = false
     @State var allDetails:Bool = false
     
     var body: some View {
@@ -126,8 +128,26 @@ struct Login: View {
                 NavigationLink(destination: Register(),isActive : $SignUpIntent) {
                     EmptyView()
                 }
+                
+                NavigationLink(destination: ContentView(),isActive : $HomePageIntent) {
+                    EmptyView()
+                }
+                
         }.navigationBarBackButtonHidden(true)
     }
+    
+    func LoginUser(email:String, password:String) {
+        Auth.auth().signIn(withEmail: email, password: password) { Result, Error in
+            if let Error = Error {
+                print("Failed to login user:", Error)
+                return
+            }
+            print("Successfully logged in as user: \(Result?.user.uid ?? "")")
+            self.HomePageIntent = true
+            
+        }
+    }
+
 }
 
 struct Login_Previews: PreviewProvider {

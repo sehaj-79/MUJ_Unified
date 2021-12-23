@@ -9,25 +9,38 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var option:Int = 0
-    let options: [String] = ["Order Food Online","View Map","Option 3","Option 4"]
+    @State var intentRestaurants = false
+    @State var intentMap = false
     
     var body: some View {
         VStack {
             
-            ForEach((0...3), id: \.self) {option in
-                Button {
-                    
-                } label: {
-                    Text(options[option]).frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .background(Color.blue)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(50.0)
-                        .padding()
-                }
+            NavigationLink(destination: Restaurants(), isActive: $intentRestaurants){EmptyView()}
+            
+            NavigationLink(destination: MapPage(), isActive: $intentMap){EmptyView()}
+            
+            Button {
+                self.intentRestaurants = true
+            } label: {
+                Text("Order Food Online").frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(50.0)
+                    .padding(.vertical)
             }
             
-        }
+            Button {
+                self.intentMap = true
+            } label: {
+                Text("View Map").frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(50.0)
+                    .padding(.vertical)
+            }
+            
+            
+        }.navigationBarHidden(true)
     
     
     }

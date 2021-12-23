@@ -14,16 +14,12 @@ func CreateAccount(name:String, email:String, password:String){
             print("Failed To Create Account", Error)
             return
         }
+        
+        let db = Firestore.firestore()
+        let collection = db.collection("Users")
+        let userID = Result?.user.uid
+        collection.document(userID!).setData(["ID":userID!,"Name":name,"Email":email,"Password":password])
+        
         print("Successfully Create Account")
     }
 }
-
-func LoginUser(email:String, password:String) {
-        Auth.auth().signIn(withEmail: email, password: password) { Result, Error in
-            if let Error = Error {
-                print("Failed to login user:", Error)
-                return
-            }
-            print("Successfully logged in as user: \(Result?.user.uid ?? "")")
-        }
-    }
