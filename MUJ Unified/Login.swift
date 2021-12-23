@@ -12,6 +12,7 @@ struct Login: View {
     @State var email:String = ""
     @State var password:String = ""
     @State var SignUpIntent:Bool = false
+    @State var allDetails:Bool = false
     
     var body: some View {
             VStack {
@@ -59,7 +60,10 @@ struct Login: View {
                         Text("Password")
                             .padding(.leading, 25.0)
                         Spacer()
-                    }
+                    }.alert(isPresented: $allDetails, content: {
+                        Alert(title: Text("Error"),message: Text("Please Fill Email & Password"),
+                              dismissButton: .default(Text("OK")))
+                    })
                     
                     HStack {
                         SecureField("********", text: $password)
@@ -84,6 +88,14 @@ struct Login: View {
                 }.padding(.top,25)
                
                 Button {
+                    
+                    if (email.isEmpty || password.isEmpty){
+                        self.allDetails = true
+                    }
+                    
+                    else{
+                        LoginUser(email: email,password: password)
+                    }
                     
                 } label: {
                     Text("Sign In")

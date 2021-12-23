@@ -119,12 +119,11 @@ struct Register: View {
                 if(!(name.isEmpty || email.isEmpty || password.isEmpty || cpassword.isEmpty)){
                     
                     if (password == cpassword) {
-                        CreateAccount(email: email, password: password)
+                        CreateAccount(name: name, email: email, password: password)
                     }
                     else{
                         self.incorrectPass = true
                     }
-                    
                     
                 }
                 else{
