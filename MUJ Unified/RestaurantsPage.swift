@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct Restaurants: View {
+    
+    @ObservedObject var array = DataModel()
+    
     var body: some View {
-        Text("Restaurants")
+        
+        List(array.list){ item in
+            Text(item.id+"\n\(item.Contact)\n")
+        }
+    }
+    
+    init(){
+        array.getData()
     }
 }
 
