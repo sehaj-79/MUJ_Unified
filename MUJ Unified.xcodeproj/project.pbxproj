@@ -16,6 +16,10 @@
 		AE7B1AA7277385EC007A8CC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE7B1AA6277385EC007A8CC9 /* GoogleService-Info.plist */; };
 		AE7B1AA927738C16007A8CC9 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7B1AA827738C16007A8CC9 /* Functions.swift */; };
 		AE7B1AAB2775076C007A8CC9 /* RestaurantsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7B1AAA2775076B007A8CC9 /* RestaurantsPage.swift */; };
+		AE96E484277C949400DB529F /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = AE96E483277C949400DB529F /* FirebaseDatabase */; };
+		AE96E486277C949400DB529F /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = AE96E485277C949400DB529F /* FirebaseDatabaseSwift-Beta */; };
+		AE96E488277CADDC00DB529F /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96E487277CADDC00DB529F /* Menu.swift */; };
+		AE96E48A277CCA6500DB529F /* Menu2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE96E489277CCA6500DB529F /* Menu2.swift */; };
 		AEBDF363276D18DB004C9A5A /* MapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDF362276D18DB004C9A5A /* MapPage.swift */; };
 		AEBDF365276E02BB004C9A5A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDF364276E02BB004C9A5A /* Login.swift */; };
 		AEC42EBE2779F0DC008A0760 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC42EBD2779F0DC008A0760 /* Model.swift */; };
@@ -32,6 +36,8 @@
 		AE7B1AA6277385EC007A8CC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AE7B1AA827738C16007A8CC9 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		AE7B1AAA2775076B007A8CC9 /* RestaurantsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsPage.swift; sourceTree = "<group>"; };
+		AE96E487277CADDC00DB529F /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		AE96E489277CCA6500DB529F /* Menu2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu2.swift; sourceTree = "<group>"; };
 		AEBDF362276D18DB004C9A5A /* MapPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPage.swift; sourceTree = "<group>"; };
 		AEBDF364276E02BB004C9A5A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		AEC42EBD2779F0DC008A0760 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -47,8 +53,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE96E486277C949400DB529F /* FirebaseDatabaseSwift-Beta in Frameworks */,
 				AE7B1AA5277381DF007A8CC9 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				AE7B1AA1277381DF007A8CC9 /* FirebaseAuth in Frameworks */,
+				AE96E484277C949400DB529F /* FirebaseDatabase in Frameworks */,
 				AE7B1AA3277381DF007A8CC9 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,11 +64,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE96E482277C949400DB529F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E63F911D276B6AC40040C61B = {
 			isa = PBXGroup;
 			children = (
 				E63F9128276B6AC40040C61B /* MUJ Unified */,
 				E63F9127276B6AC40040C61B /* Products */,
+				AE96E482277C949400DB529F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +99,8 @@
 				AE7B1A9B2770A1E3007A8CC9 /* Register.swift */,
 				AE7B1AA827738C16007A8CC9 /* Functions.swift */,
 				AE7B1AAA2775076B007A8CC9 /* RestaurantsPage.swift */,
+				AE96E487277CADDC00DB529F /* Menu.swift */,
+				AE96E489277CCA6500DB529F /* Menu2.swift */,
 				AE726A072779E192008A10B8 /* DataModel.swift */,
 				AEC42EBD2779F0DC008A0760 /* Model.swift */,
 				AE7B1AA6277385EC007A8CC9 /* GoogleService-Info.plist */,
@@ -120,6 +138,8 @@
 				AE7B1AA0277381DF007A8CC9 /* FirebaseAuth */,
 				AE7B1AA2277381DF007A8CC9 /* FirebaseFirestore */,
 				AE7B1AA4277381DF007A8CC9 /* FirebaseFirestoreSwift-Beta */,
+				AE96E483277C949400DB529F /* FirebaseDatabase */,
+				AE96E485277C949400DB529F /* FirebaseDatabaseSwift-Beta */,
 			);
 			productName = "MUJ Unified";
 			productReference = E63F9126276B6AC40040C61B /* MUJ Unified.app */;
@@ -180,10 +200,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE7B1AAB2775076C007A8CC9 /* RestaurantsPage.swift in Sources */,
+				AE96E48A277CCA6500DB529F /* Menu2.swift in Sources */,
 				AE7B1A9E2773752F007A8CC9 /* Main.swift in Sources */,
 				AEBDF363276D18DB004C9A5A /* MapPage.swift in Sources */,
 				AE7B1AA927738C16007A8CC9 /* Functions.swift in Sources */,
 				E63F912C276B6AC40040C61B /* ContentView.swift in Sources */,
+				AE96E488277CADDC00DB529F /* Menu.swift in Sources */,
 				AEC42EBE2779F0DC008A0760 /* Model.swift in Sources */,
 				E63F912A276B6AC40040C61B /* MUJ_UnifiedApp.swift in Sources */,
 				AEBDF365276E02BB004C9A5A /* Login.swift in Sources */,
@@ -424,6 +446,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE7B1A9F277381DE007A8CC9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		AE96E483277C949400DB529F /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE7B1A9F277381DE007A8CC9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		AE96E485277C949400DB529F /* FirebaseDatabaseSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE7B1A9F277381DE007A8CC9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseDatabaseSwift-Beta";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
