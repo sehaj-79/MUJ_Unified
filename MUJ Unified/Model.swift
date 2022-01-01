@@ -26,5 +26,11 @@ struct Items  : Identifiable {
     var Amount : Int
 }
 
+struct myCart  : Identifiable {
+    var id : String     //Name
+    var Amount : Int
+    var Quantity : Int
+}
+
 
 

@@ -24,7 +24,7 @@ func CreateAccount(name:String, email:String, password:String){
     }
 }
 
-func AddToCart(RName : String, item : String){
+func AddToCart(RName : String, item : String, amount : Int){
     let db = Firestore.firestore()
     var quantity : Int = 0
     var check : Bool = false
@@ -39,10 +39,7 @@ func AddToCart(RName : String, item : String){
             }
         }
         if check==false{
-            db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").document().setData(["Item Name" : item, "Quantity":1])
+            db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").document().setData(["Item Name" : item, "Quantity":1, "Amount": amount])
         }
     }
-    
-    
-    
 }

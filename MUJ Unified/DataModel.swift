@@ -13,6 +13,7 @@ class DataModel : ObservableObject{
     @Published var list1 = [Restaurant]()
     @Published var list2 = [Categories]()
     @Published var list3 = [Items]()
+    @Published var listCart = [myCart]()
     
     
     func getData(){
@@ -71,7 +72,7 @@ class DataModel : ObservableObject{
                     //Update List Property in Main Thread
                     DispatchQueue.main.async {
                         self.list3 = snapshot.documents.map { d in
-                            //Creates a Categories item for each document returned
+                            //Creates a Items item for each document returned
                             Items(id: d["Name"] as! String, Amount: d["Amount"] as! Int)
                         }
                     }
@@ -82,4 +83,31 @@ class DataModel : ObservableObject{
             }
         }
     }
+    
+    
+    
+    func getCart(RName : String){
+        let db = Firestore.firestore()
+        db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").getDocuments { snapshot, error in
+            if error == nil{
+                //No Errors
+                if let snapshot = snapshot{
+                    
+                    //Update List Property in Main Thread
+                    DispatchQueue.main.async {
+                        self.listCart = snapshot.documents.map { d in
+                            //Creates a myCart item for each document returned
+                            myCart(id: d["Item Name"] as! String, Amount: d["Amount"] as! Int, Quantity: d["Quantity"] as! Int)
+                        }
+                    }
+                }
+            }
+            else{
+                //Handle Errors
+            }
+        }
+    }
+    
+    
+    
 }

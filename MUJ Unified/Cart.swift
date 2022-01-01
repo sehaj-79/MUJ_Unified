@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct Cart: View {
+    
+    @ObservedObject var a = DataModel()
+    @State var ResName : String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(a.listCart){ item in
+            HStack {
+                Text(item.id)
+                Spacer()
+                Button {
+                    
+                } label: {
+                    Text("-")
+                }
+                Text("\(item.Quantity)")
+                Button {
+                    
+                } label: {
+                    Text("+")
+                }
+
+            }.buttonStyle(BorderlessButtonStyle())
+        }.navigationTitle("Cart").onAppear {
+            a.getCart(RName: ResName)
+        }
     }
 }
 

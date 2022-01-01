@@ -21,7 +21,7 @@ struct Menu2: View {
                 Text(item.id)
                 Spacer()
                 Button {
-                    AddToCart(RName: ResName, item: item.id)
+                    AddToCart(RName: ResName, item: item.id, amount: item.Amount)
                 } label: {
                     Text("Add")
                 }
@@ -30,11 +30,12 @@ struct Menu2: View {
         }.navigationTitle(Category).onAppear {
             a.getItemData(doc1: ResName, doc2: Category)
         }.toolbar {
-            Button {
-                
+            NavigationLink {
+                Cart(ResName:ResName)
             } label: {
-                Text("Order")
+                Text("Cart")
             }
+
 
         }
     }
