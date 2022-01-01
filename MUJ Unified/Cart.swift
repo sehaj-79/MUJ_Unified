@@ -18,13 +18,20 @@ struct Cart: View {
                 Text(item.id)
                 Spacer()
                 Button {
+                    QuantityDecrease(RName: ResName, item: item.id)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        a.getCart(RName: ResName)
+                    }
                     
                 } label: {
                     Text("-")
                 }
                 Text("\(item.Quantity)")
                 Button {
-                    
+                    QuantityIncrease(RName: ResName, item: item.id)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        a.getCart(RName: ResName)
+                    }
                 } label: {
                     Text("+")
                 }

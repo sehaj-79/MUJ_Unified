@@ -27,7 +27,7 @@ struct Items  : Identifiable {
 }
 
 struct myCart  : Identifiable {
-    var id : String     //Name
+    var id : String      //Name
     var Amount : Int
     var Quantity : Int
 }
