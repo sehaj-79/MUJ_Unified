@@ -21,7 +21,7 @@ struct Menu2: View {
                 Text(item.id)
                 Spacer()
                 Button {
-                    
+                    AddToCart(RName: ResName, item: item.id)
                 } label: {
                     Text("Add")
                 }

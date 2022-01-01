@@ -23,3 +23,26 @@ func CreateAccount(name:String, email:String, password:String){
         print("Successfully Create Account")
     }
 }
+
+func AddToCart(RName : String, item : String){
+    let db = Firestore.firestore()
+    var quantity : Int = 0
+    var check : Bool = false
+    db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").getDocuments { snapshot, error in
+        for doc in snapshot!.documents{
+            if doc["Item Name"] as! String == item{
+                quantity = doc["Quantity"] as! Int
+                quantity+=1
+                db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").document(doc.documentID).setData(["Quantity" : quantity], merge: true)
+                check = true
+                break
+            }
+        }
+        if check==false{
+            db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").document().setData(["Item Name" : item, "Quantity":1])
+        }
+    }
+    
+    
+    
+}

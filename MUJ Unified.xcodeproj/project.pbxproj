@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AE726A082779E193008A10B8 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE726A072779E192008A10B8 /* DataModel.swift */; };
+		AE7A428427808C0F001B106D /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A428327808C0F001B106D /* Cart.swift */; };
 		AE7B1A9C2770A1E3007A8CC9 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7B1A9B2770A1E3007A8CC9 /* Register.swift */; };
 		AE7B1A9E2773752F007A8CC9 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7B1A9D2773752F007A8CC9 /* Main.swift */; };
 		AE7B1AA1277381DF007A8CC9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AE7B1AA0277381DF007A8CC9 /* FirebaseAuth */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		AE726A072779E192008A10B8 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		AE7A428327808C0F001B106D /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		AE7B1A9B2770A1E3007A8CC9 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		AE7B1A9D2773752F007A8CC9 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		AE7B1AA6277385EC007A8CC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				AE96E489277CCA6500DB529F /* Menu2.swift */,
 				AE726A072779E192008A10B8 /* DataModel.swift */,
 				AEC42EBD2779F0DC008A0760 /* Model.swift */,
+				AE7A428327808C0F001B106D /* Cart.swift */,
 				AE7B1AA6277385EC007A8CC9 /* GoogleService-Info.plist */,
 				E63F912D276B6AC60040C61B /* Assets.xcassets */,
 				E63F912F276B6AC60040C61B /* Preview Content */,
@@ -202,6 +205,7 @@
 				AE7B1AAB2775076C007A8CC9 /* RestaurantsPage.swift in Sources */,
 				AE96E48A277CCA6500DB529F /* Menu2.swift in Sources */,
 				AE7B1A9E2773752F007A8CC9 /* Main.swift in Sources */,
+				AE7A428427808C0F001B106D /* Cart.swift in Sources */,
 				AEBDF363276D18DB004C9A5A /* MapPage.swift in Sources */,
 				AE7B1AA927738C16007A8CC9 /* Functions.swift in Sources */,
 				E63F912C276B6AC40040C61B /* ContentView.swift in Sources */,

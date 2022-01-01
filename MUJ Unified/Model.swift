@@ -7,7 +7,7 @@
 
 import Foundation
 
-public var myUserID : String = ""
+public var myUserID : String = "ThisIsMyRandomUserID"
 
 struct Restaurant : Identifiable {
     
