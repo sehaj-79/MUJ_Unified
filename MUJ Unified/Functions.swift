@@ -67,10 +67,40 @@ func QuantityDecrease(RName : String, item : String){
             if doc["Item Name"] as! String == item{
                 quantity = doc["Quantity"] as! Int
                 quantity-=1
-                db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").document(doc.documentID).setData(["Quantity" : quantity], merge: true)
+                if quantity==0{
+                    showAlertGlobal = true
+                }
+                else{
+                    db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").document(doc.documentID).setData(["Quantity" : quantity], merge: true)
+                }
                 break
             }
         }
     }
 }
 
+func QuantityRemove(RName : String, item : String){
+    let db = Firestore.firestore()
+    db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").getDocuments { snapshot, error in
+        for doc in snapshot!.documents{
+            if doc["Item Name"] as! String == item{
+                db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").document(doc.documentID).delete()
+                showAlertGlobal = false
+                break
+            }
+        }
+    }
+}
+
+func CalcBill(RName : String) -> Int{
+    let db = Firestore.firestore()
+    var bill : Int = 0
+    db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").getDocuments { snapshot, error in
+        for doc in snapshot!.documents{
+            let amount : Int = doc["Amount"] as! Int
+            let quantity : Int = doc["Quantity"] as! Int
+            bill = bill + (amount*quantity)
+        }
+    }
+    return bill
+}
