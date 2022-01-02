@@ -92,7 +92,7 @@ func QuantityRemove(RName : String, item : String){
     }
 }
 
-func CalcBill(RName : String) -> Int{
+func CalcBill(RName : String){
     let db = Firestore.firestore()
     var bill : Int = 0
     db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").getDocuments { snapshot, error in
@@ -100,7 +100,16 @@ func CalcBill(RName : String) -> Int{
             let amount : Int = doc["Amount"] as! Int
             let quantity : Int = doc["Quantity"] as! Int
             bill = bill + (amount*quantity)
+            billAmount = bill
         }
     }
-    return bill
+}
+
+func PlaceOrder(RName : String){
+    let db = Firestore.firestore()
+    db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").getDocuments { snapshot, error in
+        for doc in snapshot!.documents{
+            db.collection("Cart & Orders").document(RName).collection(myUserID).document("Orders").collection("Collection").document(doc.documentID).setData(["Item Name" : doc["Item Name"], "Quantity": doc["Quantity"], "Amount":doc["Amount"]])
+        }
+    }
 }

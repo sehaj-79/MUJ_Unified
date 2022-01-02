@@ -73,6 +73,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AE9E1A0B2781F0F800CBCDD7 /* Order Food */ = {
+			isa = PBXGroup;
+			children = (
+				AE7B1AAA2775076B007A8CC9 /* RestaurantsPage.swift */,
+				AE96E487277CADDC00DB529F /* Menu.swift */,
+				AE96E489277CCA6500DB529F /* Menu2.swift */,
+				AE7A428327808C0F001B106D /* Cart.swift */,
+			);
+			path = "Order Food";
+			sourceTree = "<group>";
+		};
+		AE9E1A0C2781F13600CBCDD7 /* Models and Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE726A072779E192008A10B8 /* DataModel.swift */,
+				AEC42EBD2779F0DC008A0760 /* Model.swift */,
+			);
+			path = "Models and Data Models";
+			sourceTree = "<group>";
+		};
+		AE9E1A0D2781F19600CBCDD7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E63F9129276B6AC40040C61B /* MUJ_UnifiedApp.swift */,
+				E63F912B276B6AC40040C61B /* ContentView.swift */,
+				AE7B1A9D2773752F007A8CC9 /* Main.swift */,
+				AEBDF364276E02BB004C9A5A /* Login.swift */,
+				AE7B1A9B2770A1E3007A8CC9 /* Register.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AE9E1A0E2781F24000CBCDD7 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				AE7B1AA827738C16007A8CC9 /* Functions.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
 		E63F911D276B6AC40040C61B = {
 			isa = PBXGroup;
 			children = (
@@ -93,19 +133,11 @@
 		E63F9128276B6AC40040C61B /* MUJ Unified */ = {
 			isa = PBXGroup;
 			children = (
-				E63F9129276B6AC40040C61B /* MUJ_UnifiedApp.swift */,
-				E63F912B276B6AC40040C61B /* ContentView.swift */,
-				AE7B1A9D2773752F007A8CC9 /* Main.swift */,
-				AEBDF364276E02BB004C9A5A /* Login.swift */,
+				AE9E1A0E2781F24000CBCDD7 /* Functions */,
+				AE9E1A0D2781F19600CBCDD7 /* Main */,
+				AE9E1A0C2781F13600CBCDD7 /* Models and Data Models */,
+				AE9E1A0B2781F0F800CBCDD7 /* Order Food */,
 				AEBDF362276D18DB004C9A5A /* MapPage.swift */,
-				AE7B1A9B2770A1E3007A8CC9 /* Register.swift */,
-				AE7B1AA827738C16007A8CC9 /* Functions.swift */,
-				AE7B1AAA2775076B007A8CC9 /* RestaurantsPage.swift */,
-				AE96E487277CADDC00DB529F /* Menu.swift */,
-				AE96E489277CCA6500DB529F /* Menu2.swift */,
-				AE726A072779E192008A10B8 /* DataModel.swift */,
-				AEC42EBD2779F0DC008A0760 /* Model.swift */,
-				AE7A428327808C0F001B106D /* Cart.swift */,
 				AE7B1AA6277385EC007A8CC9 /* GoogleService-Info.plist */,
 				E63F912D276B6AC60040C61B /* Assets.xcassets */,
 				E63F912F276B6AC60040C61B /* Preview Content */,

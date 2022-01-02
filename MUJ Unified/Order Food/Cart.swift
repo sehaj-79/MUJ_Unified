@@ -8,6 +8,7 @@
 import SwiftUI
 
 public var showAlertGlobal : Bool = false
+public var billAmount : Int = 0
 
 struct Cart: View {
     
@@ -17,7 +18,6 @@ struct Cart: View {
     @State var showOrderPlaced : Bool = false
     @State var showPlaceOrder : Bool = false
     @State var ItemRemove : String = ""
-    @State var billAmount : Int = 100
     
     var body: some View {
         List(a.listCart){ item in
@@ -62,14 +62,21 @@ struct Cart: View {
             }.alert("Place Order",isPresented: $showPlaceOrder){
                 Button("Cancel",role: .cancel){}
                 Button("Order"){
-                    
+                    PlaceOrder(RName: ResName)
+                    showOrderPlaced = true
                 }
             } message: {
                 Text("Bill Amount is ₹\(billAmount)")
+            }.alert("Order Placed",isPresented: $showOrderPlaced){
+                Button("OK"){}
+            } message: {
+                Text("Order will be delivered shortly")
             }.buttonStyle(BorderlessButtonStyle()).toolbar {
                 Button {
-                    billAmount = CalcBill(RName: ResName)
-                    showPlaceOrder = true
+                    CalcBill(RName: ResName)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        showPlaceOrder = true
+                    }
                 } label: {
                     Text("Order")
                 }
