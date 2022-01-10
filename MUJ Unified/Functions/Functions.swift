@@ -109,7 +109,7 @@ func PlaceOrder(RName : String){
     let db = Firestore.firestore()
     db.collection("Cart & Orders").document(RName).collection(myUserID).document("Cart").collection("Collection").getDocuments { snapshot, error in
         for doc in snapshot!.documents{
-            db.collection("Cart & Orders").document(RName).collection(myUserID).document("Orders").collection("Collection").document(doc.documentID).setData(["Item Name" : doc["Item Name"], "Quantity": doc["Quantity"], "Amount":doc["Amount"]])
+            db.collection("Cart & Orders").document(RName).collection(myUserID).document("Orders").collection("Collection").document(doc.documentID).setData(["Item Name" : doc["Item Name"]!, "Quantity": doc["Quantity"]!, "Amount":doc["Amount"]!])
         }
     }
 }

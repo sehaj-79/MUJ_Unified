@@ -10,14 +10,17 @@ import SwiftUI
 struct ContentView: View {
     
     @State var intentRestaurants = false
-    @State var intentMap = false
+    @State var intentAltitude = false
+    @State var intentAR = false
     
     var body: some View {
         VStack {
             
             NavigationLink(destination: Restaurants(), isActive: $intentRestaurants){EmptyView()}
             
-            NavigationLink(destination: MapPage(), isActive: $intentMap){EmptyView()}
+            NavigationLink(destination: ARGuidance(), isActive: $intentAR){EmptyView()}
+            
+            NavigationLink(destination: Altitude(), isActive: $intentAltitude){EmptyView()}
             
             Button {
                 self.intentRestaurants = true
@@ -30,9 +33,19 @@ struct ContentView: View {
             }
             
             Button {
-                self.intentMap = true
+                self.intentAR = true
             } label: {
-                Text("View Map").frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Text("View AR Guidance").frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(50.0)
+                    .padding(.vertical)
+            }
+            
+            Button {
+                self.intentAltitude = true
+            } label: {
+                Text("View Altitude Page").frame(width: 300, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .background(Color.blue)
                     .foregroundColor(Color.white)
                     .cornerRadius(50.0)
