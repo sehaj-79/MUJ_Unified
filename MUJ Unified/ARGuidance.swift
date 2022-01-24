@@ -8,56 +8,82 @@
 import SwiftUI
 import RealityKit
 import ARKit
+import FocusEntity
 
 struct ARGuidance: View {
     
     var body: some View {
-        ZStack(alignment: .bottom){
-            ARViewContainer().edgesIgnoringSafeArea(.all)
-            
-            
-            HStack{
-                Button {
-                    print("checkmark pressed")
-                } label: {
-                    Text("Place")
-                        .frame(width: 60, height: 60)
-                        .foregroundColor(Color.white)
-                        .background(Color.blue)
-                        .cornerRadius(30)
-                        .padding(20)
-                        .opacity(0.75)
-                }
-
-            }
-        }
+        RealityKitView()
+            .ignoresSafeArea()
     }
 }
 
-struct ARViewContainer : UIViewRepresentable{
-    
-    func makeUIView(context: Context) -> some UIView {
-        let arView = ARView(frame: .zero)
+struct RealityKitView: UIViewRepresentable {
+    func makeUIView(context: Context) -> ARView {
+        let view = ARView()
         
+        // Start AR session
+        let session = view.session
         let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [.horizontal, .vertical]
-        config.environmentTexturing = .automatic
+        config.planeDetection = [.horizontal]
+        session.run(config)
         
-        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh){
-            config.sceneReconstruction = .mesh
+        // Add coaching overlay
+        let coachingOverlay = ARCoachingOverlayView()
+        coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        coachingOverlay.session = session
+        coachingOverlay.goal = .horizontalPlane
+        view.addSubview(coachingOverlay)
+        
+        // Set debug options
+//        #if DEBUG
+//        view.debugOptions = [.showFeaturePoints, .showAnchorOrigins, .showAnchorGeometry]
+//        #endif
+        
+        context.coordinator.view = view
+        session.delegate = context.coordinator
+        
+        
+        view.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: context.coordinator,
+                action: #selector(Coordinator.handleTap)
+            )
+        )
+        
+        return view
+    }
+
+    func updateUIView(_ view: ARView, context: Context) {
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator()
+    }
+
+    class Coordinator: NSObject, ARSessionDelegate {
+        weak var view: ARView?
+        var focusEntity: FocusEntity?
+
+        func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+            guard let view = self.view else { return }
+            debugPrint("Anchors added to the scene: ", anchors)
+            self.focusEntity = FocusEntity(on: view, style: .classic(color: .yellow))
         }
         
-        arView.session.run(config)
-        
-        return arView
-    }
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
-        let modelEntity = try! ModelEntity.loadModel(named: "arrow.usdz")
-        let anchorEntity = AnchorEntity(plane: .any)
-        anchorEntity.addChild(modelEntity)
-        
-        uiView.scene.addAnchor(anchorEntity)
+        @objc func handleTap() {
+            guard let view = self.view, let focusEntity = self.focusEntity else { return }
+
+            // Create a new anchor to add content to
+            let anchor = AnchorEntity()
+            view.scene.anchors.append(anchor)
+
+            let diceEntity = try! ModelEntity.loadModel(named: "arrow")
+            diceEntity.scale = [0.01, 0.01, 0.01]
+            diceEntity.position = focusEntity.position
+
+            anchor.addChild(diceEntity)
+        }
         
         
     }

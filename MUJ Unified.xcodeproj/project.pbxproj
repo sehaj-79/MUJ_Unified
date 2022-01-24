@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE2AEAD0279A570300FBC9DF /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = AE2AEACF279A570300FBC9DF /* FocusEntity */; };
 		AE58D993278B278400641A9F /* Altitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE58D992278B278400641A9F /* Altitude.swift */; };
 		AE726A082779E193008A10B8 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE726A072779E192008A10B8 /* DataModel.swift */; };
 		AE7A428427808C0F001B106D /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A428327808C0F001B106D /* Cart.swift */; };
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE2AEAD0279A570300FBC9DF /* FocusEntity in Frameworks */,
 				AE96E486277C949400DB529F /* FirebaseDatabaseSwift-Beta in Frameworks */,
 				AE7B1AA5277381DF007A8CC9 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				AE7B1AA1277381DF007A8CC9 /* FirebaseAuth in Frameworks */,
@@ -195,6 +197,7 @@
 				AE7B1AA4277381DF007A8CC9 /* FirebaseFirestoreSwift-Beta */,
 				AE96E483277C949400DB529F /* FirebaseDatabase */,
 				AE96E485277C949400DB529F /* FirebaseDatabaseSwift-Beta */,
+				AE2AEACF279A570300FBC9DF /* FocusEntity */,
 			);
 			productName = "MUJ Unified";
 			productReference = E63F9126276B6AC40040C61B /* MUJ Unified.app */;
@@ -226,6 +229,7 @@
 			mainGroup = E63F911D276B6AC40040C61B;
 			packageReferences = (
 				AE7B1A9F277381DE007A8CC9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				AE2AEACE279A570300FBC9DF /* XCRemoteSwiftPackageReference "FocusEntity" */,
 			);
 			productRefGroup = E63F9127276B6AC40040C61B /* Products */;
 			projectDirPath = "";
@@ -492,6 +496,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AE2AEACE279A570300FBC9DF /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		AE7B1A9F277381DE007A8CC9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -503,6 +515,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AE2AEACF279A570300FBC9DF /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE2AEACE279A570300FBC9DF /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
 		AE7B1AA0277381DF007A8CC9 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AE7B1A9F277381DE007A8CC9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
