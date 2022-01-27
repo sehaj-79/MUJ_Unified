@@ -411,6 +411,7 @@
 				INFOPLIST_FILE = "MUJ-Unified-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To use Augmented Reality (AR), this App requires access to your camera ";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To use Navigation, this App requires access to your Location.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "To use Navigation, this App requires access to your Location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To use Navigation, this App requires access to your Location.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "To use Navigation, this App requires access to your CoreMotion Sensors.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -449,6 +450,7 @@
 				INFOPLIST_FILE = "MUJ-Unified-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To use Augmented Reality (AR), this App requires access to your camera ";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "To use Navigation, this App requires access to your Location.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "To use Navigation, this App requires access to your Location.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To use Navigation, this App requires access to your Location.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "To use Navigation, this App requires access to your CoreMotion Sensors.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

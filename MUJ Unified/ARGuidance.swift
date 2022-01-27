@@ -9,18 +9,26 @@ import SwiftUI
 import RealityKit
 import ARKit
 import FocusEntity
+import UIKit
 
 struct ARGuidance: View {
-    
     var body: some View {
         RealityKitView()
             .ignoresSafeArea()
+    }
+    
+    init(){
+        let locationManager = CLLocationManager()
+        locationManager.requestWhenInUseAuthorization()
     }
 }
 
 struct RealityKitView: UIViewRepresentable {
     func makeUIView(context: Context) -> ARView {
         let view = ARView()
+        
+        //Screen Timeout Off
+        UIApplication.shared.isIdleTimerDisabled = true
         
         // Start AR session
         let session = view.session
@@ -35,10 +43,6 @@ struct RealityKitView: UIViewRepresentable {
         coachingOverlay.goal = .horizontalPlane
         view.addSubview(coachingOverlay)
         
-        // Set debug options
-//        #if DEBUG
-//        view.debugOptions = [.showFeaturePoints, .showAnchorOrigins, .showAnchorGeometry]
-//        #endif
         
         context.coordinator.view = view
         session.delegate = context.coordinator
@@ -60,6 +64,13 @@ struct RealityKitView: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
         Coordinator()
     }
+    
+    func updateLocation(){
+        let latitude = CLLocationManager().location?.coordinate.latitude
+        let longitude = CLLocationManager().location?.coordinate.longitude
+        print("Latitude - \(latitude ?? 0)")
+        print("Longitude - \(longitude ?? 0)")
+    }
 
     class Coordinator: NSObject, ARSessionDelegate {
         weak var view: ARView?
@@ -80,8 +91,13 @@ struct RealityKitView: UIViewRepresentable {
 
             let diceEntity = try! ModelEntity.loadModel(named: "arrow")
             diceEntity.scale = [0.01, 0.01, 0.01]
-            diceEntity.position = focusEntity.position
-
+            //diceEntity.position = focusEntity.position
+            let var_simd_quatf = simd_quatf(angle: 3.14 ,axis: simd_float3(x: 0,y: 1, z: 0))
+            diceEntity.orientation = var_simd_quatf
+            print("Scale - \(diceEntity.scale)")
+            print("Position - \(diceEntity.position)")
+            print("Orientation - \(diceEntity.orientation)")
+            
             anchor.addChild(diceEntity)
         }
         
