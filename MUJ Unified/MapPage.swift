@@ -47,10 +47,9 @@ struct MapPage: View {
         let coordinate1 = CLLocation(latitude: 28.5398, longitude: 77.2490)
         let coordinate2 = CLLocation(latitude: 28.5583, longitude: 77.2531)
 
-        var distanceInMeters = coordinate1.distance(from: coordinate2)
-        distanceInMeters/=1000
+        let distanceInMeters = coordinate1.distance(from: coordinate2)
         let dimString: String = String(format: "%.2f", distanceInMeters)
-        print("\nDistance - \(dimString)km")
+        print("\nDistance - \(dimString)m")
         
 //        print("Latitude - \(latitude ?? 0)")
 //        print("Longitude - \(longitude ?? 0)\n")
