@@ -7,7 +7,120 @@
 
 import SwiftUI
 
-struct Register: View {
+struct Register: View  {
+    
+    @State var name:String = ""
+    @State var email:String = ""
+    @State var password:String = ""
+    @State var cpassword:String = ""
+    @State var SignInIntent:Bool = false
+    @State var incorrectPass:Bool = false
+    @State var allDetails:Bool = false
+    
+    
+    var body: some View {
+        ZStack {
+            
+            Color(red: 27/255, green: 31/255, blue: 34/255)
+            
+            VStack() {
+                HStack {
+                    Button {
+                        self.SignInIntent = true
+                    } label: {
+                        Image("Back Button")
+                    }.padding(20)
+
+                    
+                    Image("MUJ Unified Small")
+                    Spacer()
+                }.offset( y: 40)
+                Spacer()
+                
+                HStack {
+                    Image("Log In").padding(.leading, 20)
+                    Spacer()
+                }.padding()
+                
+                
+                VStack {
+                    ZStack(alignment: .leading) {
+                        Text("Email")
+                            .padding(.leading, 35)
+                            .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                            .offset(x:$email.wrappedValue.isEmpty ? 0 : +11, y: $email.wrappedValue.isEmpty ? 0 : -25)
+                            .scaleEffect($email.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
+                        TextField("", text: $email)
+                            .padding(.leading, 35)
+                            .foregroundColor(Color.white)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                    }.animation(.default)
+                    
+                    Image("line")
+                }.padding(.top, 35)
+                
+                
+                VStack {
+                    ZStack(alignment: .leading) {
+                        Text("Password")
+                            .padding(.leading, 35)
+                            .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                            .offset(x:$password.wrappedValue.isEmpty ? 0 : +11, y: $password.wrappedValue.isEmpty ? 0 : -25)
+                            .scaleEffect($password.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
+                        SecureField("", text: $password)
+                            .padding(.leading, 35)
+                            .foregroundColor(Color.white)
+                    }.animation(.default)
+                        
+                    Image("line")
+                }.padding(.top, 35)
+                
+                
+                Spacer()
+                
+                Button {
+                    
+                   
+                    
+                } label: {
+                    ZStack {
+                        Image("Button BG")
+                        Text("LOG IN")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(red: 216/255, green: 165/255, blue: 148/255))
+                            .font(.title2)
+                    }
+                }
+                
+                HStack {
+                    Text("Don't have an Account?")
+                        .font(.footnote)
+                        .foregroundColor(Color.gray)
+                    
+                    Button {
+                        
+                    } label: {
+                        Text("Sign Up")
+                            .font(.footnote)
+                            .foregroundColor(Color.gray)
+                            .bold()
+                    }
+                }
+                Spacer()
+                
+            }.alert(isPresented: $allDetails, content: {
+                Alert(title: Text("Error"),message: Text("Please Fill Email & Password"),
+                      dismissButton: .default(Text("OK")))
+            })
+            
+        }.ignoresSafeArea()
+            .navigationBarBackButtonHidden(true)
+        
+    }
+    
+}
+struct Register2: View {
     
     @State var name:String = ""
     @State var email:String = ""
