@@ -18,7 +18,7 @@ struct ContentView: View {
             
             NavigationLink(destination: Restaurants(), isActive: $intentRestaurants){EmptyView()}
             
-            NavigationLink(destination: ARGuidance(), isActive: $intentAR){EmptyView()}
+//            NavigationLink(destination: ARGuidance(), isActive: $intentAR){EmptyView()}
             
             NavigationLink(destination: MapPage(), isActive: $intentMap){EmptyView()}
             

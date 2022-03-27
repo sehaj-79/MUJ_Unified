@@ -8,7 +8,71 @@
 import SwiftUI
 import Firebase
 
+
 struct Login: View {
+    
+    @State var email : String = ""
+    @State var password : String = ""
+    
+    
+    var body: some View {
+        ZStack {
+            
+            Color(red: 27/255, green: 31/255, blue: 34/255)
+            
+            VStack {
+                Spacer()
+                Image("MUJ Unified")
+                Spacer()
+                
+                HStack {
+                    Image("Log In").padding(.leading, 20)
+                    Spacer()
+                }.padding()
+                
+                
+                VStack {
+                    ZStack(alignment: .leading) {
+                        Text("Email")
+                            .padding(.leading, 35)
+                            .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                            .offset(x:$email.wrappedValue.isEmpty ? 0 : +11, y: $email.wrappedValue.isEmpty ? 0 : -25)
+                            .scaleEffect($email.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
+                        TextField("", text: $email)
+                            .padding(.leading, 35)
+                    }.animation(.default)
+                        
+                    Image("line")
+                }.padding(.top, 25)
+                
+                
+                VStack {
+                    ZStack(alignment: .leading) {
+                        Text("Password")
+                            .padding(.leading, 35)
+                            .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                            .offset(x:$password.wrappedValue.isEmpty ? 0 : +11, y: $password.wrappedValue.isEmpty ? 0 : -25)
+                            .scaleEffect($password.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
+                        TextField("", text: $password)
+                            .padding(.leading, 35)
+                    }.animation(.default)
+                        
+                    Image("line")
+                }.padding(.top, 25)
+                
+                
+                Spacer()
+                Spacer()
+            }
+            
+        }.ignoresSafeArea()
+            .navigationBarBackButtonHidden(true)
+        
+    }
+}
+
+
+struct Login2: View {
     
     @State var email:String = ""
     @State var password:String = ""
@@ -144,7 +208,6 @@ struct Login: View {
             }
             print("Successfully logged in as user: \(Result?.user.uid ?? "")")
             self.HomePageIntent = true
-            
         }
     }
 
