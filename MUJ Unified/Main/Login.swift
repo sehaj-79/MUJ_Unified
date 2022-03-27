@@ -10,7 +10,6 @@ import Firebase
 
 
 struct Login: View {
-    
     @State var email : String = ""
     @State var password : String = ""
     
@@ -41,9 +40,9 @@ struct Login: View {
                         TextField("", text: $email)
                             .padding(.leading, 35)
                     }.animation(.default)
-                        
+                    
                     Image("line")
-                }.padding(.top, 25)
+                }.padding(.top, 35)
                 
                 
                 VStack {
@@ -58,10 +57,26 @@ struct Login: View {
                     }.animation(.default)
                         
                     Image("line")
-                }.padding(.top, 25)
+                }.padding(.top, 35)
                 
                 
                 Spacer()
+                
+                
+                
+                Button {
+                    
+                } label: {
+                    ZStack {
+                        Image("Button BG")
+                        Text("Log In")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(red: 216/255, green: 165/255, blue: 148/255))
+                            .font(.title)
+                    }
+                }
+                
+
                 Spacer()
             }
             
