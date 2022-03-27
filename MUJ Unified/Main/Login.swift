@@ -10,8 +10,12 @@ import Firebase
 
 
 struct Login: View {
-    @State var email : String = ""
-    @State var password : String = ""
+    
+    @State var email:String = ""
+    @State var password:String = ""
+    @State var SignUpIntent:Bool = false
+    @State var HomePageIntent:Bool = false
+    @State var allDetails:Bool = false
     
     
     var body: some View {
@@ -39,6 +43,9 @@ struct Login: View {
                             .scaleEffect($email.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
                         TextField("", text: $email)
                             .padding(.leading, 35)
+                            .foregroundColor(Color.white)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
                     }.animation(.default)
                     
                     Image("line")
@@ -52,8 +59,9 @@ struct Login: View {
                             .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
                             .offset(x:$password.wrappedValue.isEmpty ? 0 : +11, y: $password.wrappedValue.isEmpty ? 0 : -25)
                             .scaleEffect($password.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
-                        TextField("", text: $password)
+                        SecureField("", text: $password)
                             .padding(.leading, 35)
+                            .foregroundColor(Color.white)
                     }.animation(.default)
                         
                     Image("line")
@@ -62,28 +70,71 @@ struct Login: View {
                 
                 Spacer()
                 
-                
-                
                 Button {
+                    
+                    if (email.isEmpty || password.isEmpty){
+                        self.allDetails = true
+                    }
+                    
+                    else{
+                        LoginUser(email: email,password: password)
+                    }
                     
                 } label: {
                     ZStack {
                         Image("Button BG")
-                        Text("Log In")
+                        Text("LOG IN")
                             .fontWeight(.semibold)
                             .foregroundColor(Color(red: 216/255, green: 165/255, blue: 148/255))
-                            .font(.title)
+                            .font(.title2)
                     }
                 }
                 
-
+                HStack {
+                    Text("Don't have an Account?")
+                        .font(.footnote)
+                        .foregroundColor(Color.gray)
+                    
+                    Button {
+                        self.SignUpIntent = true
+                    } label: {
+                        Text("Sign Up")
+                            .font(.footnote)
+                            .foregroundColor(Color.gray)
+                            .bold()
+                    }
+                }
                 Spacer()
+                
+            }.alert(isPresented: $allDetails, content: {
+                Alert(title: Text("Error"),message: Text("Please Fill Email & Password"),
+                      dismissButton: .default(Text("OK")))
+            })
+            
+            NavigationLink(destination: Register(),isActive : $SignUpIntent) {
+                EmptyView()
+            }
+            
+            NavigationLink(destination: ContentView(),isActive : $HomePageIntent) {
+                EmptyView()
             }
             
         }.ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
         
     }
+    
+    func LoginUser(email:String, password:String) {
+        Auth.auth().signIn(withEmail: email, password: password) { Result, Error in
+            if let Error = Error {
+                print("Failed to login user:", Error)
+                return
+            }
+            print("Successfully logged in as user: \(Result?.user.uid ?? "")")
+            self.HomePageIntent = true
+        }
+    }
+    
 }
 
 
