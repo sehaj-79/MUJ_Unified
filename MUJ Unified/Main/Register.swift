@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Register: View  {
     
+    @Environment(\.presentationMode) var presentationMode
     @State var name:String = ""
     @State var email:String = ""
     @State var password:String = ""
@@ -24,69 +25,122 @@ struct Register: View  {
             Color(red: 27/255, green: 31/255, blue: 34/255)
             
             VStack() {
-                HStack {
-                    Button {
-                        self.SignInIntent = true
-                    } label: {
-                        Image("Back Button")
-                    }.padding(20)
-
-                    
-                    Image("MUJ Unified Small")
-                    Spacer()
-                }.offset( y: 40)
+                
                 Spacer()
                 
                 HStack {
-                    Image("Log In").padding(.leading, 20)
+                    Button {
+                        self.presentationMode.wrappedValue.dismiss()
+                        //self.SignInIntent = true
+                    } label: {
+                        Image("Back")
+                    }.padding()
+                    
+                    Image("MUJ Unified Small")
+                    Spacer()
+                }
+                
+                HStack {
+                    Image("Create Account").padding(.leading, 20)
                     Spacer()
                 }.padding()
                 
                 
-                VStack {
-                    ZStack(alignment: .leading) {
-                        Text("Email")
-                            .padding(.leading, 35)
-                            .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
-                            .offset(x:$email.wrappedValue.isEmpty ? 0 : +11, y: $email.wrappedValue.isEmpty ? 0 : -25)
-                            .scaleEffect($email.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
-                        TextField("", text: $email)
-                            .padding(.leading, 35)
-                            .foregroundColor(Color.white)
-                            .textInputAutocapitalization(.never)
-                            .disableAutocorrection(true)
-                    }.animation(.default)
-                    
-                    Image("line")
-                }.padding(.top, 35)
-                
                 
                 VStack {
-                    ZStack(alignment: .leading) {
-                        Text("Password")
-                            .padding(.leading, 35)
-                            .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
-                            .offset(x:$password.wrappedValue.isEmpty ? 0 : +11, y: $password.wrappedValue.isEmpty ? 0 : -25)
-                            .scaleEffect($password.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
-                        SecureField("", text: $password)
-                            .padding(.leading, 35)
-                            .foregroundColor(Color.white)
-                    }.animation(.default)
+                    VStack {
+                        ZStack(alignment: .leading) {
+                            Text("Name")
+                                .padding(.leading, 35)
+                                .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                                .offset(x:$name.wrappedValue.isEmpty ? 0 : +11, y: $name.wrappedValue.isEmpty ? 0 : -25)
+                                .scaleEffect($name.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
+                            TextField("", text: $name)
+                                .padding(.leading, 35)
+                                .foregroundColor(Color.white)
+                                .disableAutocorrection(true)
+                        }.animation(.default)
                         
-                    Image("line")
-                }.padding(.top, 35)
+                        Image("line")
+                    }.padding(.top, 35)
+                    
+                    VStack {
+                        ZStack(alignment: .leading) {
+                            Text("Email")
+                                .padding(.leading, 35)
+                                .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                                .offset(x:$email.wrappedValue.isEmpty ? 0 : +11, y: $email.wrappedValue.isEmpty ? 0 : -25)
+                                .scaleEffect($email.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
+                            TextField("", text: $email)
+                                .padding(.leading, 35)
+                                .foregroundColor(Color.white)
+                                .disableAutocorrection(true)
+                        }.animation(.default)
+                        
+                        Image("line")
+                    }.padding(.top, 35)
+                    
+                    
+                    VStack {
+                        ZStack(alignment: .leading) {
+                            Text("Password")
+                                .padding(.leading, 35)
+                                .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                                .offset(x:$password.wrappedValue.isEmpty ? 0 : +11, y: $password.wrappedValue.isEmpty ? 0 : -25)
+                                .scaleEffect($password.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
+                            SecureField("", text: $password)
+                                .padding(.leading, 35)
+                                .foregroundColor(Color.white)
+                        }.animation(.default)
+                            
+                        Image("line")
+                    }.padding(.top, 35)
+                    
+                    VStack {
+                        ZStack(alignment: .leading) {
+                            Text("Confirm Password")
+                                .padding(.leading, 35)
+                                .foregroundColor(Color(red: 151/255, green: 151/255, blue: 151/255))
+                                .offset(x:$cpassword.wrappedValue.isEmpty ? 0 : +11, y: $cpassword.wrappedValue.isEmpty ? 0 : -25)
+                                .scaleEffect($cpassword.wrappedValue.isEmpty ? 1 : 0.75, anchor: .leading)
+                            SecureField("", text: $cpassword)
+                                .padding(.leading, 35)
+                                .foregroundColor(Color.white)
+                        }.animation(.default)
+                            
+                        Image("line")
+                    }.padding(.top, 35)
+                }
+                
+                
+                
+                
                 
                 
                 Spacer()
                 
                 Button {
                     
+                    
+                    if(!(name.isEmpty || email.isEmpty || password.isEmpty || cpassword.isEmpty)){
+                        
+                        if (password == cpassword) {
+                            CreateAccount(name: name, email: email, password: password)
+                        }
+                        else{
+                            self.incorrectPass = true
+                        }
+                        
+                    }
+                    else{
+                        self.allDetails = true
+                    }
                    
                     
                 } label: {
                     ZStack {
                         Image("Button BG")
-                        Text("LOG IN")
+                        Text("SIGN UP")
                             .fontWeight(.semibold)
                             .foregroundColor(Color(red: 216/255, green: 165/255, blue: 148/255))
                             .font(.title2)
@@ -94,25 +148,29 @@ struct Register: View  {
                 }
                 
                 HStack {
-                    Text("Don't have an Account?")
+                    Text("Already have an account?")
                         .font(.footnote)
                         .foregroundColor(Color.gray)
                     
                     Button {
-                        
+                        self.presentationMode.wrappedValue.dismiss()
+                        //self.SignInIntent = true
                     } label: {
-                        Text("Sign Up")
+                        Text("Log In")
                             .font(.footnote)
                             .foregroundColor(Color.gray)
                             .bold()
                     }
                 }
+                
                 Spacer()
+                
                 
             }.alert(isPresented: $allDetails, content: {
                 Alert(title: Text("Error"),message: Text("Please Fill Email & Password"),
                       dismissButton: .default(Text("OK")))
             })
+            
             
         }.ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
@@ -280,6 +338,6 @@ struct Register2: View {
 
 struct Register_Previews: PreviewProvider {
     static var previews: some View {
-        Register()
+        Register().previewDevice(PreviewDevice(rawValue: "iPhone 13 Pro"))
     }
 }
