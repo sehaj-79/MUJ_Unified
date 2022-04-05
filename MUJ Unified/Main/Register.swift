@@ -27,18 +27,7 @@ struct Register: View  {
             VStack() {
                 
                 Spacer()
-                
-                HStack {
-                    Button {
-                        self.presentationMode.wrappedValue.dismiss()
-                        //self.SignInIntent = true
-                    } label: {
-                        Image("Back")
-                    }.padding()
-                    
-                    Image("MUJ Unified Small")
-                    Spacer()
-                }
+                Spacer()
                 
                 HStack {
                     Image("Create Account").padding(.leading, 20)
@@ -110,6 +99,21 @@ struct Register: View  {
                             
                         Image("line")
                     }.padding(.top, 35)
+                    
+                }.toolbar{
+                    ToolbarItem(placement: .navigationBarLeading){
+                        HStack {
+                            Button {
+                                self.presentationMode.wrappedValue.dismiss()
+                                //self.SignInIntent = true
+                            } label: {
+                                Image("Back")
+                            }
+                            Image("MUJ Unified Small").padding()
+                        }
+                    }
+                    
+                    
                 }
                 
                 
@@ -339,5 +343,7 @@ struct Register2: View {
 struct Register_Previews: PreviewProvider {
     static var previews: some View {
         Register().previewDevice(PreviewDevice(rawValue: "iPhone 13 Pro"))
+        Register().previewDevice(PreviewDevice(rawValue: "iPhone 12 mini"))
+        
     }
 }

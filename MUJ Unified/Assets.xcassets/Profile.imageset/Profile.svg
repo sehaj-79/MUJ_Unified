@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="40px" viewBox="0 0 35 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 2</title>
+    <defs>
+        <filter x="-34.8%" y="-28.6%" width="169.6%" height="157.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.37254902   0 0 0 0 0.37254902   0 0 0 0 0.37254902  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="17.7941432%" y1="17.2153286%" x2="94.1225722%" y2="94.9155581%" id="linearGradient-2">
+            <stop stop-color="#9E9494" stop-opacity="0.55131136" offset="0%"></stop>
+            <stop stop-color="#CACACA" stop-opacity="0.742618251" offset="49.194592%"></stop>
+            <stop stop-color="#8E8E8E" stop-opacity="0.900542573" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="17.2153286%" y1="37.2332516%" x2="94.9155581%" y2="67.4906627%" id="linearGradient-3">
+            <stop stop-color="#9E9494" stop-opacity="0.55131136" offset="0%"></stop>
+            <stop stop-color="#CACACA" stop-opacity="0.742618251" offset="49.194592%"></stop>
+            <stop stop-color="#8E8E8E" stop-opacity="0.900542573" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-13" transform="translate(-330.000000, -781.000000)">
+            <g id="Group-2" filter="url(#filter-1)" transform="translate(336.000000, 787.000000)">
+                <ellipse id="Oval" fill="url(#linearGradient-2)" cx="11.445817" cy="7.00275141" rx="6.94065921" ry="7.00275141"></ellipse>
+                <path d="M6.32581299,13.6473343 C8.06622646,15.1627875 9.86191705,15.9205141 11.7128847,15.9205141 C13.5638524,15.9205141 15.359543,15.1627875 17.0999565,13.6473343 C18.8756047,13.9511058 20.0985511,14.4223448 20.7687956,15.0610516 C21.7741624,16.0191117 22.0969924,17.2485482 22.466235,19.0354487 C22.8354777,20.8223492 23.4556396,23.6596155 22.466235,25.640929 C21.806632,26.9618046 20.3152578,27.7465011 17.9921125,27.9950183 L5.38259892,27.9950183 C3.31628957,28.0706112 1.83442417,27.2859148 0.937002708,25.640929 C-0.409129481,23.1734504 -0.0667893557,21.0948469 0.494708593,19.0354487 C1.05620654,16.9760506 1.76867035,16.0057928 2.79108453,15.0610516 C3.47269398,14.4312241 4.6509368,13.959985 6.32581299,13.6473343 Z" id="Path-2" fill="url(#linearGradient-3)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

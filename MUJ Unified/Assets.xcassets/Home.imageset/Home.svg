@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="34px" viewBox="0 0 31 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Path 7</title>
+    <defs>
+        <linearGradient x1="24.3445397%" y1="17.2153286%" x2="85.1484175%" y2="94.9155581%" id="linearGradient-1">
+            <stop stop-color="#9E9494" stop-opacity="0.55131136" offset="0%"></stop>
+            <stop stop-color="#CACACA" stop-opacity="0.742618251" offset="49.194592%"></stop>
+            <stop stop-color="#8E8E8E" stop-opacity="0.900542573" offset="100%"></stop>
+        </linearGradient>
+        <path d="M29.6758697,815 L29.6758697,798.956637 L41.1758697,789 L52.6758697,798.956637 L52.6758697,815 C48.0887928,815 45.5863986,815 45.1686872,815 C44.5421201,815 44.671386,806.812833 44.671386,805.464169 C44.671386,804.115504 37.8444006,804.115504 37.8444006,805.464169 C37.8444006,806.812833 37.9970563,815 37.3645106,815 C36.9428134,815 34.3799331,815 29.6758697,815 Z" id="path-2"></path>
+        <filter x="-26.5%" y="-23.6%" width="153.0%" height="147.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="0.1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.372460407   0 0 0 0 0.372460407   0 0 0 0 0.372460407  0 0 0 0.567976091 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Path-7" transform="translate(-26.000000, -785.000000)">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+            <use stroke-opacity="0.229250608" stroke="#181818" stroke-width="0.2" fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+        </g>
+    </g>
+</svg>

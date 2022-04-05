@@ -115,7 +115,7 @@ struct Login: View {
                 EmptyView()
             }
             
-            NavigationLink(destination: ContentView(),isActive : $HomePageIntent) {
+            NavigationLink(destination: HomeNavBar(),isActive : $HomePageIntent) {
                 EmptyView()
             }
             

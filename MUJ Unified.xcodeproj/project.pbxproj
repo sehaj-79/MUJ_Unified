@@ -27,6 +27,7 @@
 		AEBDF363276D18DB004C9A5A /* MapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDF362276D18DB004C9A5A /* MapPage.swift */; };
 		AEBDF365276E02BB004C9A5A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDF364276E02BB004C9A5A /* Login.swift */; };
 		AEC42EBE2779F0DC008A0760 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC42EBD2779F0DC008A0760 /* Model.swift */; };
+		AEECE08327F22A42004B4784 /* HomeNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECE08227F22A42004B4784 /* HomeNavBar.swift */; };
 		AEEE463A278C4EE600C67BD3 /* arrow.usdz in Resources */ = {isa = PBXBuildFile; fileRef = AEEE4639278C4EE600C67BD3 /* arrow.usdz */; };
 		E63F912A276B6AC40040C61B /* MUJ_UnifiedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63F9129276B6AC40040C61B /* MUJ_UnifiedApp.swift */; };
 		E63F912C276B6AC40040C61B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63F912B276B6AC40040C61B /* ContentView.swift */; };
@@ -50,6 +51,7 @@
 		AEBDF362276D18DB004C9A5A /* MapPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPage.swift; sourceTree = "<group>"; };
 		AEBDF364276E02BB004C9A5A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		AEC42EBD2779F0DC008A0760 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AEECE08227F22A42004B4784 /* HomeNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavBar.swift; sourceTree = "<group>"; };
 		AEEE4639278C4EE600C67BD3 /* arrow.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = arrow.usdz; sourceTree = "<group>"; };
 		E63F9126276B6AC40040C61B /* MUJ Unified.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MUJ Unified.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E63F9129276B6AC40040C61B /* MUJ_UnifiedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUJ_UnifiedApp.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				AE7B1A9D2773752F007A8CC9 /* Main.swift */,
 				AEBDF364276E02BB004C9A5A /* Login.swift */,
 				AE7B1A9B2770A1E3007A8CC9 /* Register.swift */,
+				AEECE08227F22A42004B4784 /* HomeNavBar.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				AEBDF365276E02BB004C9A5A /* Login.swift in Sources */,
 				AE7B1A9C2770A1E3007A8CC9 /* Register.swift in Sources */,
 				AE9E1A102781F2B300CBCDD7 /* ARGuidance.swift in Sources */,
+				AEECE08327F22A42004B4784 /* HomeNavBar.swift in Sources */,
 				AE726A082779E193008A10B8 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

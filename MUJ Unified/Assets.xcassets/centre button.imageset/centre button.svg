@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="57px" height="56px" viewBox="0 0 57 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <linearGradient x1="17.2153286%" y1="18.3555773%" x2="94.9155581%" y2="93.353398%" id="linearGradient-1">
+            <stop stop-color="#9E9494" stop-opacity="0.55131136" offset="0%"></stop>
+            <stop stop-color="#CACACA" stop-opacity="0.742618251" offset="49.194592%"></stop>
+            <stop stop-color="#8E8E8E" stop-opacity="0.900542573" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="17.2153286%" y1="49.8440682%" x2="94.9155581%" y2="50.2136293%" id="linearGradient-2">
+            <stop stop-color="#9E9494" stop-opacity="0.55131136" offset="0%"></stop>
+            <stop stop-color="#CACACA" stop-opacity="0.742618251" offset="49.194592%"></stop>
+            <stop stop-color="#8E8E8E" stop-opacity="0.900542573" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="17.2153286%" y1="49.7521008%" x2="94.9155581%" y2="50.3396261%" id="linearGradient-3">
+            <stop stop-color="#9E9494" stop-opacity="0.55131136" offset="0%"></stop>
+            <stop stop-color="#CACACA" stop-opacity="0.742618251" offset="49.194592%"></stop>
+            <stop stop-color="#8E8E8E" stop-opacity="0.900542573" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="17.2153286%" y1="49.4877395%" x2="94.9155581%" y2="50.7018056%" id="linearGradient-4">
+            <stop stop-color="#9E9494" stop-opacity="0.55131136" offset="0%"></stop>
+            <stop stop-color="#CACACA" stop-opacity="0.742618251" offset="49.194592%"></stop>
+            <stop stop-color="#8E8E8E" stop-opacity="0.900542573" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPhone-13" transform="translate(-166.000000, -773.000000)">
+            <g id="Group" transform="translate(166.000000, 773.000000)">
+                <rect id="Rectangle" stroke="url(#linearGradient-1)" stroke-width="2.5" x="1.25" y="1.25" width="54.5" height="53.5" rx="26.75"></rect>
+                <line x1="14" y1="21" x2="43" y2="21" id="Path-25" stroke="url(#linearGradient-2)" stroke-width="2"></line>
+                <line x1="17" y1="28" x2="40" y2="28" id="Path-25" stroke="url(#linearGradient-3)" stroke-width="2"></line>
+                <line x1="20" y1="35" x2="36" y2="35" id="Path-25" stroke="url(#linearGradient-4)" stroke-width="2"></line>
+            </g>
+        </g>
+    </g>
+</svg>
