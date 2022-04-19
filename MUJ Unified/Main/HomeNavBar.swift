@@ -128,6 +128,7 @@ struct HomeNavBar: View {
                     }
                     
                 }.animation(.default)
+                    .offset(y: -10)
             }.ignoresSafeArea()
                 .navigationBarHidden(true)
                 

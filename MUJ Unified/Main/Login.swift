@@ -121,6 +121,16 @@ struct Login: View {
             
         }.ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
+            .onAppear{
+                if Auth.auth().currentUser != nil {
+                    // User is signed in.
+                    HomePageIntent = true
+                    print("User Logged In")
+                } else {
+                    // No user is signed in.
+                    print("User Not Logged In")
+                }
+            }
         
     }
     
@@ -140,7 +150,7 @@ struct Login: View {
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Login()
+            Login().previewDevice("iPhone 13 Pro")
         }
     }
 }
