@@ -11,6 +11,7 @@ struct HomeNavBar: View {
     
     @State var TabSelected = 1
     @State var CentreTab = false
+    @State var userName = "Sehejbir Singh Bhasin"
     let ColorNotSelected = Color(red: 178/255, green: 178/255, blue: 178/255)
     let ColorSelected = Color(red: 209/255, green: 138/255, blue: 114/255)
     let BackgroundColor = Color(red: 27/255, green: 31/255, blue: 34/255)
@@ -24,16 +25,47 @@ struct HomeNavBar: View {
             BackgroundColor.ignoresSafeArea()
             VStack {
                 
+                HStack {
+                    
+                    Image("MUJ Logo")
+                        .resizable()
+                        .frame(width: 70, height: 70)
+                        .padding(.leading)
+                        
+                    VStack(alignment: .leading){
+                        Text("Hello!")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color(red: 168/255, green: 168/255, blue: 168/255, opacity: 1.0))
+                        
+                        Text(userName)
+                            .font(.headline)
+                            .fontWeight(.medium)
+                            .foregroundColor(Color(red: 233/255, green: 233/255, blue: 233/255, opacity: 1.0))
+                            
+                    }
+                    
+                    Spacer()
+                    Text("MUJ\nUNIFIED")
+                        .foregroundColor(Color(red: 233/255, green: 233/255, blue: 233/255, opacity: 1.0))
+                    
+                        .offset(x: 0, y: 0)
+                        .multilineTextAlignment(.trailing)
+                        .font(.custom("Copperplate", size: 25))
+                        .padding(.trailing)
+                }
+                .offset(x: 0, y: 60)
+                    
+                
                 Spacer()
                 
                 if TabSelected == 1{
                     
-                    ZStack {
-                        Text("Home")
-                            .foregroundColor(ColorSelected)
-                            .font(.title)
-                            .bold()
-                    }
+                    Text("Home")
+                        .foregroundColor(ColorSelected)
+                        .font(.title)
+                        .bold()
+                    
                 }
                 
                 if TabSelected == 2{
