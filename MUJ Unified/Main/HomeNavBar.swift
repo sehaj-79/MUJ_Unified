@@ -63,10 +63,14 @@ struct HomeNavBar: View {
                 
                 if TabSelected == 1{
                     
-                    Text("Home")
-                        .foregroundColor(ColorSelected)
-                        .font(.title)
-                        .bold()
+                    HStack {
+                        Spacer()
+                        Text("Home")
+                            .foregroundColor(ColorSelected)
+                            .font(.title)
+                            .bold()
+                        Spacer()
+                    }
                     
                 }
                 
@@ -100,17 +104,25 @@ struct HomeNavBar: View {
                 }
                 
                 if TabSelected == 3{
-                    Text("Maps")
-                        .foregroundColor(ColorSelected)
-                        .font(.title)
-                        .bold()
+                    HStack {
+                        Spacer()
+                        Text("Maps")
+                            .foregroundColor(ColorSelected)
+                            .font(.title)
+                            .bold()
+                        Spacer()
+                    }
                 }
                 
                 if TabSelected == 4{
-                    Text("Profile")
-                        .foregroundColor(ColorSelected)
-                        .font(.title)
-                        .bold()
+                    HStack {
+                        Spacer()
+                        Text("Profile")
+                            .foregroundColor(ColorSelected)
+                            .font(.title)
+                            .bold()
+                        Spacer()
+                    }
                 }
                 
                 
