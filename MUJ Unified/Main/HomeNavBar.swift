@@ -100,6 +100,8 @@ struct HomeNavBar: View {
                         }
                         
                         RestaurantsPage()
+                            .offset(y:20)
+                            .frame(height: 500)
                         
                         Spacer()
                     }.offset(y:100)
