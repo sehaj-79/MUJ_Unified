@@ -99,6 +99,8 @@ struct HomeNavBar: View {
                             .padding(.horizontal)
                         }
                         
+                        RestaurantsPage()
+                        
                         Spacer()
                     }.offset(y:100)
                 }

@@ -7,25 +7,32 @@
 
 import SwiftUI
 
-struct Restaurants: View {
+struct RestaurantsPage: View {
     
     @ObservedObject var array = DataModel()
+    let BackgroundColor = Color(red: 27/255, green: 31/255, blue: 34/255)
 
     
     var body: some View {
         
-        VStack {
-            List(array.list1){ item in
-                
-                NavigationLink {
-                    Menu(ResName : item.id)
-                } label: {
-                    Text(item.id)
+        ZStack {
+            BackgroundColor.ignoresSafeArea()
+            
+            VStack(alignment: .leading) {
+                ForEach(array.list1){ item in
+                    
+                    NavigationLink {
+                        Menu(ResName : item.id)
+                    } label: {
+                        VStack() {
+                            Text(item.id)
+                        }
+                    }
+                    
                 }
                 
-            }
-            
-        }.navigationTitle("Restaurant")
+            }.navigationTitle("Restaurant")
+        }
         
     }
     
@@ -34,8 +41,8 @@ struct Restaurants: View {
     }
 }
 
-struct Restaurants_Previews: PreviewProvider {
+struct RestaurantsPage_Previews: PreviewProvider {
     static var previews: some View {
-        Restaurants()
+        RestaurantsPage()
     }
 }

@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
-            NavigationLink(destination: Restaurants(), isActive: $intentRestaurants){EmptyView()}
+            NavigationLink(destination: RestaurantsPage(), isActive: $intentRestaurants){EmptyView()}
             
             //NavigationLink(destination: ARGuidance(), isActive: $intentAR){EmptyView()}
             
