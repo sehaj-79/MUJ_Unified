@@ -10,11 +10,13 @@ import Firebase
 
 struct HomeNavBar: View {
     
-    @State var TabSelected = 1
+    @State var TabSelected = 2
     @State var CentreTab = false
     @State var userName = ""
+    @State var search = ""
     let ColorNotSelected = Color(red: 178/255, green: 178/255, blue: 178/255)
     let ColorSelected = Color(red: 209/255, green: 138/255, blue: 114/255)
+    let ColorWhite = Color(red: 233/255, green: 233/255, blue: 233/255)
     let BackgroundColor = Color(red: 27/255, green: 31/255, blue: 34/255)
     var TextColor = Color(red: 178/255, green: 178/255, blue: 178/255)
     
@@ -23,7 +25,7 @@ struct HomeNavBar: View {
         
         ZStack {
             BackgroundColor.ignoresSafeArea()
-            VStack {
+            VStack(alignment: .leading) {
                 
                 HStack {
                     
@@ -69,10 +71,32 @@ struct HomeNavBar: View {
                 }
                 
                 if TabSelected == 2{
-                    Text("Food")
-                        .foregroundColor(ColorSelected)
-                        .font(.title)
-                        .bold()
+                    VStack (alignment: .leading){
+                        Text("Order Online")
+                            .font(.title3)
+                            .foregroundColor(ColorWhite)
+                            .padding(.horizontal)
+                        
+                        
+                        ZStack(alignment:.leading) {
+                            Text(search.isEmpty ? "Search..." : "")
+                                .foregroundColor(Color.gray)
+                                .padding(.horizontal, 35)
+                            TextField("", text: $search)
+                                .foregroundColor(ColorWhite)
+                                .colorMultiply(Color.white)
+                                .frame(height: 40)
+                                .padding(.horizontal)
+                                .disableAutocorrection(true)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .stroke(Color.gray, lineWidth: 1)
+                                )
+                            .padding(.horizontal)
+                        }
+                        
+                        Spacer()
+                    }.offset(y:100)
                 }
                 
                 if TabSelected == 3{
@@ -163,7 +187,7 @@ struct HomeNavBar: View {
                     .offset(y: -10)
             }.ignoresSafeArea()
                 .navigationBarHidden(true)
-                .onAppear(perform: getName)
+                //.onAppear(perform: getName)
                 
         }
     }
