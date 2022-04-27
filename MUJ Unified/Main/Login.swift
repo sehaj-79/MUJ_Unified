@@ -125,7 +125,8 @@ struct Login: View {
                 if Auth.auth().currentUser != nil {
                     // User is signed in.
                     HomePageIntent = true
-                    print("User Logged In")
+                    let user = Auth.auth().currentUser
+                    print("User Logged In As - \(String(describing: user))")
                 } else {
                     // No user is signed in.
                     print("User Not Logged In")

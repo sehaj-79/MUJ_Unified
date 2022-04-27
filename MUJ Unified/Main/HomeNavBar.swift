@@ -6,17 +6,17 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct HomeNavBar: View {
     
     @State var TabSelected = 1
     @State var CentreTab = false
-    @State var userName = "Sehejbir Singh Bhasin"
+    @State var userName = ""
     let ColorNotSelected = Color(red: 178/255, green: 178/255, blue: 178/255)
     let ColorSelected = Color(red: 209/255, green: 138/255, blue: 114/255)
     let BackgroundColor = Color(red: 27/255, green: 31/255, blue: 34/255)
     var TextColor = Color(red: 178/255, green: 178/255, blue: 178/255)
-    
     
     
     var body: some View {
@@ -163,7 +163,25 @@ struct HomeNavBar: View {
                     .offset(y: -10)
             }.ignoresSafeArea()
                 .navigationBarHidden(true)
+                .onAppear(perform: getName)
                 
+        }
+    }
+    
+    
+    func getName(){
+        let user = Auth.auth().currentUser?.uid
+        print("User logged in as \(String(describing: user))")
+        let db = Firestore.firestore()
+        let docRef = db.collection("Users").document(user!)
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                userName = "\(document["Name"]!)"
+                print("UserName is \(userName)")
+            } else {
+                print("Document does not exist")
+            }
         }
     }
 }
