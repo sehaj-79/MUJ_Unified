@@ -32,5 +32,11 @@ struct myCart  : Identifiable {
     var Quantity : Int
 }
 
+struct Places  : Identifiable {
+    var id : String      //Name
+    var Longitutde : Double
+    var Latitude : Double
+}
+
 
 

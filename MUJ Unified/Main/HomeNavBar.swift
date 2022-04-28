@@ -10,7 +10,7 @@ import Firebase
 
 struct HomeNavBar: View {
     
-    @State var TabSelected = 2
+    @State var TabSelected = 1
     @State var CentreTab = false
     @State var userName = ""
     @State var search = ""
@@ -76,46 +76,14 @@ struct HomeNavBar: View {
                 
                 if TabSelected == 2{
                     VStack (alignment: .leading){
-                        Text("Order Online")
-                            .font(.title3)
-                            .foregroundColor(ColorWhite)
-                            .padding(.horizontal)
-                        
-                        
-                        ZStack(alignment:.leading) {
-                            Text(search.isEmpty ? "Search..." : "")
-                                .foregroundColor(Color.gray)
-                                .padding(.horizontal, 35)
-                            TextField("", text: $search)
-                                .foregroundColor(ColorWhite)
-                                .colorMultiply(Color.white)
-                                .frame(height: 40)
-                                .padding(.horizontal)
-                                .disableAutocorrection(true)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke(Color.gray, lineWidth: 1)
-                                )
-                            .padding(.horizontal)
-                        }
-                        
                         RestaurantsPage()
-                            .offset(y:20)
-                            .frame(height: 500)
-                        
-                        Spacer()
-                    }.offset(y:100)
+                    }.offset(y:75)
                 }
                 
                 if TabSelected == 3{
-                    HStack {
-                        Spacer()
-                        Text("Maps")
-                            .foregroundColor(ColorSelected)
-                            .font(.title)
-                            .bold()
-                        Spacer()
-                    }
+                    VStack (alignment: .leading){
+                        NavigateTo()
+                    }.offset(y:75)
                 }
                 
                 if TabSelected == 4{

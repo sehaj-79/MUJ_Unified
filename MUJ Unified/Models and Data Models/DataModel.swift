@@ -14,6 +14,12 @@ class DataModel : ObservableObject{
     @Published var list2 = [Categories]()
     @Published var list3 = [Items]()
     @Published var listCart = [myCart]()
+    @Published var listPlaces = [Places]()
+    
+    init(){
+        listPlaces.append(Places(id: "AB1 001", Longitutde: 70.5, Latitude: 70.4))
+        listPlaces.append(Places(id: "AB1 002", Longitutde: 70.9, Latitude: 72.4))
+    }
     
     
     func getData(){

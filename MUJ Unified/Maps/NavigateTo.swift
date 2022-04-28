@@ -1,13 +1,13 @@
 //
-//  Restaurants.swift
+//  NavigateTo.swift
 //  MUJ Unified
 //
-//  Created by Shikhar Kumar on 24/12/21.
+//  Created by Shikhar Kumar on 28/04/22.
 //
 
 import SwiftUI
 
-struct RestaurantsPage: View {
+struct NavigateTo: View {
     
     @ObservedObject var array = DataModel()
     let BackgroundColor = Color(red: 27/255, green: 31/255, blue: 34/255)
@@ -17,12 +17,11 @@ struct RestaurantsPage: View {
     
     
     var body: some View {
-        
         ZStack {
             BackgroundColor.ignoresSafeArea()
             
             VStack(alignment: .leading) {
-                Text("Order Online")
+                Text("Navigate To")
                     .font(.title3)
                     .foregroundColor(ColorWhite)
                     .padding(.horizontal)
@@ -46,11 +45,11 @@ struct RestaurantsPage: View {
                 }
                 ScrollView {
                     VStack(alignment: .leading) {
-                        ForEach(array.list1){ item in
+                        ForEach(array.listPlaces){ item in
                             
                             if search.isEmpty  {
                                 NavigationLink {
-                                    Menu(ResName : item.id)
+                                    ARGuidance()
                                     
                                 } label: {
                                     ZStack(alignment: .leading) {
@@ -73,7 +72,7 @@ struct RestaurantsPage: View {
                             
                             else if item.id.contains(search){
                                 NavigationLink {
-                                    Menu(ResName : item.id)
+                                    ARGuidance()
                                     
                                 } label: {
                                     ZStack(alignment: .leading) {
@@ -98,20 +97,15 @@ struct RestaurantsPage: View {
                             
                         }
                         
-                    }.navigationTitle("Restaurant")
+                    }.navigationTitle("Maps")
                 }
             }
         }
-        
-    }
-    
-    init(){
-        array.getData()
     }
 }
 
-struct RestaurantsPage_Previews: PreviewProvider {
+struct NavigateTo_Previews: PreviewProvider {
     static var previews: some View {
-        RestaurantsPage()
+        NavigateTo().previewDevice("iPhone 13 Pro")
     }
 }

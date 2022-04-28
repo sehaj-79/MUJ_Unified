@@ -27,6 +27,7 @@
 		AEBDF363276D18DB004C9A5A /* MapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDF362276D18DB004C9A5A /* MapPage.swift */; };
 		AEBDF365276E02BB004C9A5A /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDF364276E02BB004C9A5A /* Login.swift */; };
 		AEC42EBE2779F0DC008A0760 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC42EBD2779F0DC008A0760 /* Model.swift */; };
+		AEE1A183281A97BD00C8C700 /* NavigateTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1A182281A97BD00C8C700 /* NavigateTo.swift */; };
 		AEECE08327F22A42004B4784 /* HomeNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECE08227F22A42004B4784 /* HomeNavBar.swift */; };
 		AEEE463A278C4EE600C67BD3 /* arrow.usdz in Resources */ = {isa = PBXBuildFile; fileRef = AEEE4639278C4EE600C67BD3 /* arrow.usdz */; };
 		E63F912A276B6AC40040C61B /* MUJ_UnifiedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63F9129276B6AC40040C61B /* MUJ_UnifiedApp.swift */; };
@@ -52,6 +53,7 @@
 		AEBDF364276E02BB004C9A5A /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		AEC42EBD2779F0DC008A0760 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AEDEA27B28182FEF00F105BB /* Copperplate.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Copperplate.otf; sourceTree = "<group>"; };
+		AEE1A182281A97BD00C8C700 /* NavigateTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateTo.swift; sourceTree = "<group>"; };
 		AEECE08227F22A42004B4784 /* HomeNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavBar.swift; sourceTree = "<group>"; };
 		AEEE4639278C4EE600C67BD3 /* arrow.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = arrow.usdz; sourceTree = "<group>"; };
 		E63F9126276B6AC40040C61B /* MUJ Unified.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MUJ Unified.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,17 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		AEE1A181281A976600C8C700 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				AEBDF362276D18DB004C9A5A /* MapPage.swift */,
+				AE58D992278B278400641A9F /* Altitude.swift */,
+				AE9E1A0F2781F2B300CBCDD7 /* ARGuidance.swift */,
+				AEE1A182281A97BD00C8C700 /* NavigateTo.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
 		AEEE4638278C4EAD00C67BD3 /* USDZFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,11 +179,9 @@
 				AE9E1A0D2781F19600CBCDD7 /* Main */,
 				AE9E1A0C2781F13600CBCDD7 /* Models and Data Models */,
 				AE9E1A0B2781F0F800CBCDD7 /* Order Food */,
+				AEE1A181281A976600C8C700 /* Maps */,
 				AEEE4638278C4EAD00C67BD3 /* USDZFiles */,
 				AEDEA27A280F4D9200F105BB /* Fonts */,
-				AE9E1A0F2781F2B300CBCDD7 /* ARGuidance.swift */,
-				AEBDF362276D18DB004C9A5A /* MapPage.swift */,
-				AE58D992278B278400641A9F /* Altitude.swift */,
 				AE7B1AA6277385EC007A8CC9 /* GoogleService-Info.plist */,
 				AE58D994278B31E400641A9F /* MUJ-Unified-Info.plist */,
 				E63F912D276B6AC60040C61B /* Assets.xcassets */,
@@ -284,6 +295,7 @@
 				E63F912A276B6AC40040C61B /* MUJ_UnifiedApp.swift in Sources */,
 				AE58D993278B278400641A9F /* Altitude.swift in Sources */,
 				AEBDF365276E02BB004C9A5A /* Login.swift in Sources */,
+				AEE1A183281A97BD00C8C700 /* NavigateTo.swift in Sources */,
 				AE7B1A9C2770A1E3007A8CC9 /* Register.swift in Sources */,
 				AE9E1A102781F2B300CBCDD7 /* ARGuidance.swift in Sources */,
 				AEECE08327F22A42004B4784 /* HomeNavBar.swift in Sources */,
